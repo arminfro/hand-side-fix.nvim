@@ -33,15 +33,15 @@ Click on `Use this template`
 ```
 .
 ├── lua
-│   ├── plugin_name
+│   ├── syntax-hand-fix
 │   │   └── module.lua
-│   └── plugin_name.lua
+│   └── syntax-hand-fix.lua
 ├── Makefile
 ├── plugin
-│   └── plugin_name.lua
+│   └── syntax-hand-fix.lua
 ├── README.md
 ├── tests
 │   ├── minimal_init.lua
-│   └── plugin_name
-│       └── plugin_name_spec.lua
+│   └── syntax-hand-fix
+│       └── syntax-hand-fix_spec.lua
 ```
