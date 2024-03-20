@@ -1,5 +1,7 @@
 local M = {}
 
+local utils = require("syntax-hand-fix.utils")
+
 ---@class HandSide
 ---@field left number
 ---@field right number
@@ -44,12 +46,8 @@ M.layouts = {
   us = us_keyboard_layout,
 }
 
-function is_letter(char)
-  return char:match("%a") ~= nil
-end
-
 M.is_different_hand_side = function(layout, prev_char, current_char)
-  if prev_char and current_char and is_letter(prev_char) and is_letter(current_char) then
+  if prev_char and current_char and utils.is_letter(prev_char) and utils.is_letter(current_char) then
     local prev_hand_side = M.layouts[layout][prev_char]
     local current_hand_side = M.layouts[layout][current_char]
 

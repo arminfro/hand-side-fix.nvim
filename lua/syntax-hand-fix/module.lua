@@ -2,15 +2,17 @@
 local M = {}
 
 local mixups = require("syntax-hand-fix.mixups")
+local abbreviations = require("syntax-hand-fix.abbreviations")
 
----@return string
 ---@param opts Config
 M.init = function(opts, language)
-  P(mixups.get(opts.layout, language))
+  local language_mixups = mixups.get(opts.layout, language)
+  abbreviations.init(language_mixups)
 end
 
-M.unload = function() 
-  print('DEBUGPRINT[1]: module.lua:12 (after M.unload = function())')
+M.unload = function(opts, language)
+  local language_mixups = mixups.get(opts.layout, language)
+  abbreviations.unload(language_mixups)
 end
 
 return M

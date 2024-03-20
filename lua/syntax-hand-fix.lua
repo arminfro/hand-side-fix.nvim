@@ -24,4 +24,8 @@ M.init = function(language)
   return module.init(M.config, language)
 end
 
+M.unload = function(language)
+  return module.unload(M.config, language)
+end
+
 return M

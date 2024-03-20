@@ -11,4 +11,8 @@ M.has_value = function(tab, val)
   return false
 end
 
+M.is_letter = function(char)
+  return char:match("%a") ~= nil
+end
+
 return M
