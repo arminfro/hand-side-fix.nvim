@@ -2,9 +2,9 @@
 local module = require("syntax-hand-fix.module")
 
 ---@class Config
----@field opt string Your config option
+---@field layout string --KeyboardLayout
 local config = {
-  opt = "Hello!",
+  layout = "us",
 }
 
 ---@class MyModule
@@ -20,8 +20,8 @@ M.setup = function(args)
   M.config = vim.tbl_deep_extend("force", M.config, args or {})
 end
 
-M.hello = function()
-  return module.my_first_function(M.config.opt)
+M.init = function(language)
+  return module.init(M.config, language)
 end
 
 return M
