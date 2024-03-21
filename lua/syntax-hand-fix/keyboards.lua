@@ -46,6 +46,10 @@ M.layouts = {
   us = us_keyboard_layout,
 }
 
+---@param layout string
+---@param prev_char string
+---@param current_char string
+---@return boolean
 M.is_different_hand_side = function(layout, prev_char, current_char)
   if prev_char and current_char and utils.is_letter(prev_char) and utils.is_letter(current_char) then
     local prev_hand_side = M.layouts[layout][prev_char]

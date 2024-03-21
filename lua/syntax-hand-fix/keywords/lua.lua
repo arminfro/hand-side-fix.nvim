@@ -1,7 +1,5 @@
----@class KeywordsModule
-local M = {}
-
-local lua_keywords = {
+---@return string[]
+return {
   "and",
   "break",
   "do",
@@ -24,9 +22,3 @@ local lua_keywords = {
   "until",
   "while",
 }
-
-M.languages = {
-  lua = lua_keywords,
-}
-
-return M

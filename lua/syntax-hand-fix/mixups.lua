@@ -2,9 +2,12 @@
 local M = {}
 
 local keyboards = require("syntax-hand-fix.keyboards")
-local keywords_mod = require("syntax-hand-fix.keywords")
+local languages = require("syntax-hand-fix.languages")
 local utils = require("syntax-hand-fix.utils")
 
+---@param layout string
+---@param keyword string
+---@return table<string, string>
 local function keyword_mixup(layout, keyword)
   local mixups = {}
   local keyword_len = #keyword
@@ -19,6 +22,9 @@ local function keyword_mixup(layout, keyword)
   return mixups
 end
 
+---@param layout string
+---@param keywords string[]
+---@return table<string, table<string, string>>
 local function keywords_mixups(layout, keywords)
   local all_mixups = {}
   for _, keyword in ipairs(keywords) do
@@ -38,8 +44,11 @@ local function keywords_mixups(layout, keywords)
   return all_mixups
 end
 
+---@param layout string
+---@param language string
+---@return table<string, table<string, string>>
 M.get = function(layout, language)
-  return keywords_mixups(layout, keywords_mod.languages[language])
+  return keywords_mixups(layout, languages[language].keywords)
 end
 
 return M
