@@ -2,48 +2,12 @@ local M = {}
 
 local utils = require("syntax-hand-fix.utils")
 
----@class HandSide
----@field left number
----@field right number
-hand_side = {
-  left = 1,
-  right = 2,
-}
-
----@class KeyboardLayout
-local us_keyboard_layout = {
-  a = hand_side.left,
-  b = hand_side.left,
-  c = hand_side.left,
-  d = hand_side.left,
-  e = hand_side.left,
-  f = hand_side.left,
-  g = hand_side.left,
-  h = hand_side.right,
-  i = hand_side.right,
-  j = hand_side.right,
-  k = hand_side.right,
-  l = hand_side.right,
-  m = hand_side.right,
-  n = hand_side.right,
-  o = hand_side.right,
-  p = hand_side.right,
-  q = hand_side.left,
-  r = hand_side.left,
-  s = hand_side.left,
-  t = hand_side.right,
-  u = hand_side.right,
-  v = hand_side.left,
-  w = hand_side.left,
-  x = hand_side.left,
-  y = hand_side.right,
-  z = hand_side.left,
-}
-
 ---@class KeyboardLayouts
 ---@field us KeyboardLayout
+---@field de KeyboardLayout
 M.layouts = {
-  us = us_keyboard_layout,
+  us = require("syntax-hand-fix.layouts.us"),
+  de = require("syntax-hand-fix.layouts.de"),
 }
 
 ---@param layout string
@@ -60,4 +24,5 @@ M.is_different_hand_side = function(layout, prev_char, current_char)
     return false
   end
 end
+
 return M
