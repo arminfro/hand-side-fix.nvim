@@ -22,7 +22,7 @@ describe("KeywordsModule", function()
     end)
 
     it("should return false if input is not a letter 'a'", function()
-      local char = "b"
+      local char = "!"
       assert.is_false(utils.is_letter(char))
     end)
   end)
