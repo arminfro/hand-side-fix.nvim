@@ -1,4 +1,4 @@
----@class KeywordsModule
+---@class Utils
 local M = {}
 
 ---@param tab table
