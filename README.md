@@ -8,7 +8,7 @@ layouts and keywords of programming languages.
 It addresses the common issue of typos that arise when consecutive letters are
 pressed by different hands.
 
-The plugin identifies keyword typos that occur from cross-handed typing and configures
+The plugin calculates keyword typos that occur from cross-handed typing and configures
 Vim's native abbreviation system to correct them.
 
 For example, in a language that supports the `const` keyword, typing `cosnt` will
@@ -32,21 +32,21 @@ Requires neovim-nightly:
 
 ## Supported Languages
 
-* C/C++
-* C#
-* Go
-* Haskell
-* Html
-* Java
-* Javascript/Typescript
-* Kotlin
-* Lua
-* Php
-* Python
-* Ruby
-* Rust
-* Scala
-* Swift
+- C/C++
+- C#
+- Go
+- Haskell
+- Html
+- Java
+- Javascript/Typescript
+- Kotlin
+- Lua
+- Php
+- Python
+- Ruby
+- Rust
+- Scala
+- Swift
 
 ## Contributing
 

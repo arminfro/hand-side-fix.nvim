@@ -5,6 +5,8 @@ local keyboards = require("hand-side-fix.keyboards")
 local languages = require("hand-side-fix.languages")
 local utils = require("hand-side-fix.utils")
 
+M.cache = {}
+
 ---@param layout string
 ---@param keyword string
 ---@return table<string, string>
@@ -51,7 +53,14 @@ end
 ---@param excludes string[]
 ---@return table<string, table<string, string>>
 M.get = function(layout, language, excludes)
-  return keywords_mixups(layout, languages[language].keywords(), excludes)
+  if M.cache[layout] and M.cache[layout][language] then
+    return M.cache[layout][language]
+  else
+    local mixups = keywords_mixups(layout, languages[language].keywords(), excludes)
+    M.cache[layout] = M.cache[layout] or {}
+    M.cache[layout][language] = mixups
+    return mixups
+  end
 end
 
 return M

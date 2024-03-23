@@ -27,7 +27,9 @@ return {
     pattern = { "*.tsx", "*.ts" },
   },
   csharp = {
-    keywords = require("hand-side-fix.keywords.csharp"),
+    keywords = function()
+      return require("hand-side-fix.keywords.csharp")
+    end,
     pattern = "*.cs",
   },
   c = {

@@ -8,6 +8,7 @@ describe("MixupsModule", function()
   for layout, expected_mixups_per_layout in pairs(expected_mixups) do
     for language, expected_mixups_per_lang in pairs(expected_mixups_per_layout) do
       it("should return expected_mixups based on hand sides for " .. language .. " in " .. layout, function()
+        mixups_mod.cache = {}
         local mixups = mixups_mod.get(layout, language, {})
         for keyword, expected_mixups_list in pairs(expected_mixups_per_lang) do
           if #expected_mixups_list > 0 then
@@ -33,6 +34,7 @@ describe("MixupsModule", function()
   it("should leave defined excludes", function()
     local exclude = "lese"
 
+    mixups_mod.cache = {}
     local mixups = mixups_mod.get("us", "lua", { exclude })
     local bad_words = mixups["else"]
     assert.is_false(utils.has_value(bad_words, exclude))
