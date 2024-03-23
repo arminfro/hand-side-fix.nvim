@@ -27,7 +27,7 @@ return {
   q = hand_side.left,
   r = hand_side.left,
   s = hand_side.left,
-  t = hand_side.right,
+  t = hand_side.left,
   u = hand_side.right,
   v = hand_side.left,
   w = hand_side.left,

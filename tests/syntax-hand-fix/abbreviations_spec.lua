@@ -1,7 +1,7 @@
 local abbreviations = require("syntax-hand-fix.abbreviations")
 
 local function keymaps_find_abbreviation(tab, val)
-  for i, keymap in pairs(tab) do
+  for _, keymap in pairs(tab) do
     if val == keymap.lhs then
       return keymap
     end
