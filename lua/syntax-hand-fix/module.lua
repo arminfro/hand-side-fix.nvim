@@ -13,7 +13,7 @@ M.init = function(opts, language)
   if not M.processed_buffers[current_buffer] then
     M.processed_buffers[current_buffer] = true
 
-    local language_mixups = mixups.get(opts.layout, language)
+    local language_mixups = mixups.get(opts.layout, language, opts.excludes)
     abbreviations.init(language_mixups)
   end
 end

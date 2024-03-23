@@ -24,15 +24,17 @@ end
 
 ---@param layout string
 ---@param keywords string[]
+---@param excludes string[]
 ---@return table<string, table<string, string>>
-local function keywords_mixups(layout, keywords)
+local function keywords_mixups(layout, keywords, excludes)
   local all_mixups = {}
   for _, keyword in ipairs(keywords) do
     local keyword_mixups = {}
 
     local mixups = keyword_mixup(layout, keyword)
     for _, mixup in ipairs(mixups) do
-      if not utils.has_value(keywords, mixup) then
+      -- if mixup is not a keyword and if it's not excluded
+      if not utils.has_value(keywords, mixup) and not utils.has_value(excludes, mixup) then
         table.insert(keyword_mixups, mixup)
       end
     end
@@ -46,9 +48,10 @@ end
 
 ---@param layout string
 ---@param language string
+---@param excludes string[]
 ---@return table<string, table<string, string>>
-M.get = function(layout, language)
-  return keywords_mixups(layout, languages[language].keywords)
+M.get = function(layout, language, excludes)
+  return keywords_mixups(layout, languages[language].keywords, excludes)
 end
 
 return M

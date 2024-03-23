@@ -2,8 +2,10 @@ local module = require("syntax-hand-fix.module")
 
 ---@class Config
 ---@field layout string
+---@field exclude string[]
 local config = {
   layout = "us",
+  excludes = {},
 }
 
 ---@class MyModule
