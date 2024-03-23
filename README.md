@@ -1,47 +1,58 @@
-# A Neovim Plugin Template
+# Abbreviations setup with `hand-side-fix.nvim`
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ellisonleao/nvim-plugin-template/lint-test.yml?branch=main&style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/arminfro/hand-side-fix.nvim/lint-test.yml?branch=main&style=for-the-badge)
 ![Lua](https://img.shields.io/badge/Made%20with%20Lua-blueviolet.svg?style=for-the-badge&logo=lua)
 
-A template repository for Neovim plugins.
+This plugin simplifies the setup of abbreviations tailored to specific keyboard
+layouts and keywords of programming languages.
+It addresses the common issue of typos that arise when consecutive letters are
+pressed by different hands.
 
-## Using it
+The plugin identifies keyword typos that occur from cross-handed typing and configures
+Vim's native abbreviation system to correct them.
 
-Via `gh`:
+For example, in a language that supports the `const` keyword, typing `cosnt` will
+correct the typo (in the case of a US keyboard).
+See the [test data](https://github.com/arminfro/hand-side-fix.nvim/tree/main/tests/hand-side-fix/expectations) for all abbreviations.
 
+## Installation via `lazy.nvim`
+
+Requires neovim-nightly:
+
+```lua
+{
+  "arminfro/hand-side-fix.nvim",
+  event = "BufEnter",
+  opts = {
+    layout = "us",
+    excludes = {} -- e.g.: { "fi" }
+  },
+},
 ```
-$ gh repo create my-plugin -p ellisonleao/nvim-plugin-template
-```
 
-Via github web page:
+## Supported Languages
 
-Click on `Use this template`
+* C/C++
+* C#
+* Go
+* Haskell
+* Html
+* Java
+* Javascript/Typescript
+* Kotlin
+* Lua
+* Php
+* Python
+* Ruby
+* Rust
+* Scala
+* Swift
 
-![](https://docs.github.com/assets/cb-36544/images/help/repository/use-this-template-button.png)
+## Contributing
 
-## Features and structure
+- provide [some](https://github.com/arminfro/hand-side-fix.nvim/blob/main/lua/hand-side-fix/layouts/us.lua) keyboard layout file and I can wire it up
+- provide [keywords](https://github.com/arminfro/hand-side-fix.nvim/tree/main/lua/hand-side-fix/keywords) list for a programming language not supported yet
+- check the [keywords](https://github.com/arminfro/hand-side-fix.nvim/tree/main/lua/hand-side-fix/keywords) defined for a programming language and suggest improvements
 
-- 100% Lua
-- Github actions for:
-  - running tests using [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) and [busted](https://olivinelabs.com/busted/)
-  - check for formatting errors (Stylua)
-  - vimdocs autogeneration from README.md file
-  - luarocks release (LUAROCKS_API_KEY secret configuration required)
-
-### Plugin structure
-
-```
-.
-├── lua
-│   ├── syntax-hand-fix
-│   │   └── module.lua
-│   └── syntax-hand-fix.lua
-├── Makefile
-├── plugin
-│   └── syntax-hand-fix.lua
-├── README.md
-├── tests
-│   ├── minimal_init.lua
-│   └── syntax-hand-fix
-│       └── syntax-hand-fix_spec.lua
-```
+If you would like to contribute to hand-side-fix, feel free to submit pull
+requests or open issues.
