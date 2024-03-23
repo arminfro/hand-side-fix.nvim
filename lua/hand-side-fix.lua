@@ -1,4 +1,4 @@
-local module = require("syntax-hand-fix.module")
+local module = require("hand-side-fix.module")
 
 ---@class Config
 ---@field layout string
@@ -17,7 +17,7 @@ M.config = config
 ---@param args Config?
 M.setup = function(args)
   M.config = vim.tbl_deep_extend("force", M.config, args or {})
-  if not pcall(require, "syntax-hand-fix.layouts." .. M.config.layout) then
+  if not pcall(require, "hand-side-fix.layouts." .. M.config.layout) then
     error("Layout " .. M.config.layout .. " not supported")
   end
 end

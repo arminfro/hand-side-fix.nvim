@@ -1,8 +1,8 @@
-local mixups_mod = require("syntax-hand-fix.mixups")
-local utils = require("syntax-hand-fix.utils")
-require("syntax-hand-fix.utils")
+local mixups_mod = require("hand-side-fix.mixups")
+local utils = require("hand-side-fix.utils")
+require("hand-side-fix.utils")
 
-local expected_mixups = require("tests.syntax-hand-fix.expected_mixups")
+local expected_mixups = require("tests.hand-side-fix.expected_mixups")
 
 describe("MixupsModule", function()
   for layout, expected_mixups_per_layout in pairs(expected_mixups) do

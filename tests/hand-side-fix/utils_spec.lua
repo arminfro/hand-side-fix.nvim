@@ -1,4 +1,4 @@
-local utils = require("syntax-hand-fix.utils")
+local utils = require("hand-side-fix.utils")
 
 describe("KeywordsModule", function()
   describe("has_value", function()

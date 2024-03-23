@@ -1,4 +1,4 @@
-local abbreviations = require("syntax-hand-fix.abbreviations")
+local abbreviations = require("hand-side-fix.abbreviations")
 
 local function keymaps_find_abbreviation(tab, val)
   for _, keymap in pairs(tab) do
@@ -11,7 +11,7 @@ local function keymaps_find_abbreviation(tab, val)
 end
 
 describe("AbbreviationsModule", function()
-  local expected_mixups = require("tests.syntax-hand-fix.expected_mixups")
+  local expected_mixups = require("tests.hand-side-fix.expected_mixups")
 
   for layout, layout_mixups in pairs(expected_mixups) do
     for language, language_mixups in pairs(layout_mixups) do

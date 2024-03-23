@@ -1,9 +1,9 @@
 ---@class CustomModule
 local M = {}
 
-local keyboards = require("syntax-hand-fix.keyboards")
-local languages = require("syntax-hand-fix.languages")
-local utils = require("syntax-hand-fix.utils")
+local keyboards = require("hand-side-fix.keyboards")
+local languages = require("hand-side-fix.languages")
+local utils = require("hand-side-fix.utils")
 
 ---@param layout string
 ---@param keyword string

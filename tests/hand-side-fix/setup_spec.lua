@@ -1,4 +1,4 @@
-local plugin = require("syntax-hand-fix")
+local plugin = require("hand-side-fix")
 
 describe("setup", function()
   it("works with default opts", function()

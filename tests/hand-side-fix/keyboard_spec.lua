@@ -1,4 +1,4 @@
-local keyboards = require("syntax-hand-fix.keyboards")
+local keyboards = require("hand-side-fix.keyboards")
 
 describe("is_different_hand_side", function()
   it("should return true when previous and current characters are on different hand sides in the US layout", function()

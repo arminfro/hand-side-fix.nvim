@@ -1,8 +1,8 @@
 ---@class CustomModule
 local M = {}
 
-local mixups = require("syntax-hand-fix.mixups")
-local abbreviations = require("syntax-hand-fix.abbreviations")
+local mixups = require("hand-side-fix.mixups")
+local abbreviations = require("hand-side-fix.abbreviations")
 
 M.processed_buffers = {}
 

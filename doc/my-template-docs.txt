@@ -45,17 +45,17 @@ PLUGIN STRUCTURE ~
 >
     .
     ├── lua
-    │   ├── syntax-hand-fix
+    │   ├── hand-side-fix
     │   │   └── module.lua
-    │   └── syntax-hand-fix.lua
+    │   └── hand-side-fix.lua
     ├── Makefile
     ├── plugin
-    │   └── syntax-hand-fix.lua
+    │   └── hand-side-fix.lua
     ├── README.md
     ├── tests
     │   ├── minimal_init.lua
-    │   └── syntax-hand-fix
-    │       └── syntax-hand-fix_spec.lua
+    │   └── hand-side-fix
+    │       └── hand-side-fix_spec.lua
 <
 
 ==============================================================================

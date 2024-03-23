@@ -1,13 +1,13 @@
 local M = {}
 
-local utils = require("syntax-hand-fix.utils")
+local utils = require("hand-side-fix.utils")
 
 ---@class KeyboardLayouts
 ---@field us KeyboardLayout
 ---@field de KeyboardLayout
 M.layouts = {
-  us = require("syntax-hand-fix.layouts.us"),
-  de = require("syntax-hand-fix.layouts.de"),
+  us = require("hand-side-fix.layouts.us"),
+  de = require("hand-side-fix.layouts.de"),
 }
 
 ---@param layout string

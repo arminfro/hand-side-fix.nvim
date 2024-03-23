@@ -1,0 +1,13 @@
+{
+    "diagnostics.globals": [
+        "describe",
+        "it",
+        "vim",
+        "assert",
+        "pairs",
+        "require",
+        "ipairs",
+        "xpcall",
+        "os"
+    ]
+}
