@@ -4,10 +4,10 @@ require("syntax-hand-fix.utils")
 
 local expected_mixups = require("tests.syntax-hand-fix.expected_mixups")
 
-describe("mixups_mod.get", function()
-  it("should return mixups for keywords based on hand sides, the layout and the language", function()
-    for layout, expected_mixups_per_layout in pairs(expected_mixups) do
-      for language, expected_mixups_per_lang in pairs(expected_mixups_per_layout) do
+describe("MixupsModule", function()
+  for layout, expected_mixups_per_layout in pairs(expected_mixups) do
+    for language, expected_mixups_per_lang in pairs(expected_mixups_per_layout) do
+      it("should return expected_mixups based on hand sides for " .. language .. " in " .. layout, function()
         local mixups = mixups_mod.get(layout, language)
         for keyword, expected_mixups_list in pairs(expected_mixups_per_lang) do
           if #expected_mixups_list > 0 then
@@ -15,17 +15,18 @@ describe("mixups_mod.get", function()
             assert.is_true(is_keyword_present)
             local allPresent = is_keyword_present
             for _, mixup in ipairs(expected_mixups_list) do
-              allPresent = allPresent and utils.has_value(mixups[keyword], mixup)
+              local isValuePresent = utils.has_value(mixups[keyword], mixup)
+              allPresent = allPresent and isValuePresent
               if not allPresent then
                 print("Failing mixups for " .. language .. " in layout " .. layout .. "=" .. vim.inspect(mixups))
               end
-              assert.is_true(utils.has_value(mixups[keyword], mixup))
+              assert.is_true(isValuePresent)
             end
           else
             assert.is_true(mixups[keyword] == nil)
           end
         end
-      end
+      end)
     end
-  end)
+  end
 end)

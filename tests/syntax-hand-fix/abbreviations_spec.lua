@@ -15,7 +15,7 @@ describe("AbbreviationsModule", function()
 
   for layout, layout_mixups in pairs(expected_mixups) do
     for language, language_mixups in pairs(layout_mixups) do
-      it("should set keymaps correctly for " .. language .. " in " .. layout, function()
+      it("should set expected keymaps for " .. language .. " in " .. layout, function()
         abbreviations.init(language_mixups)
         local keymaps = vim.api.nvim_buf_get_keymap(0, "ia")
         for _, bad_words in pairs(language_mixups) do
