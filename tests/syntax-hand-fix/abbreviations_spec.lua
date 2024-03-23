@@ -11,19 +11,19 @@ local function keymaps_find_abbreviation(tab, val)
 end
 
 describe("AbbreviationsModule", function()
-  it("should set keymaps correctly for language mixups", function()
-    local language_mixups = {
-      ["function"] = { "fucntion", "funciton" },
-      ["return"] = { "retrun", "retunr" },
-    }
+  local expected_mixups = require("tests.syntax-hand-fix.expected_mixups")
 
-    abbreviations.init(language_mixups)
-
-    local keymaps = vim.api.nvim_buf_get_keymap(0, "ia")
-
-    assert(keymaps_find_abbreviation(keymaps, "fucntion"))
-    assert(keymaps_find_abbreviation(keymaps, "funciton"))
-    assert(keymaps_find_abbreviation(keymaps, "retrun"))
-    assert(keymaps_find_abbreviation(keymaps, "retunr"))
-  end)
+  for layout, layout_mixups in pairs(expected_mixups) do
+    for language, language_mixups in pairs(layout_mixups) do
+      it("should set keymaps correctly for " .. language .. " in " .. layout, function()
+        abbreviations.init(language_mixups)
+        local keymaps = vim.api.nvim_buf_get_keymap(0, "ia")
+        for _, bad_words in pairs(language_mixups) do
+          for _, bad_word in pairs(bad_words) do
+            assert(keymaps_find_abbreviation(keymaps, bad_word))
+          end
+        end
+      end)
+    end
+  end
 end)
