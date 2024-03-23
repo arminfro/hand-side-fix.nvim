@@ -51,7 +51,7 @@ end
 ---@param excludes string[]
 ---@return table<string, table<string, string>>
 M.get = function(layout, language, excludes)
-  return keywords_mixups(layout, languages[language].keywords, excludes)
+  return keywords_mixups(layout, languages[language].keywords(), excludes)
 end
 
 return M
