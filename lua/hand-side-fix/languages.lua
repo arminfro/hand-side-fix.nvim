@@ -1,6 +1,4 @@
 ---@class Languages
----@field keywords fun(): string[]
----@field pattern string
 return {
   lua = {
     keywords = function()

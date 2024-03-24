@@ -15,9 +15,13 @@ For example, in a language that supports the `const` keyword, typing `cosnt` wil
 correct the typo (in the case of a US keyboard).
 See the [test data](https://github.com/arminfro/hand-side-fix.nvim/tree/main/tests/hand-side-fix/expectations) for all abbreviations.
 
+You can also provide your own custom keywords to setup the correspondent abbreviations.
+
 ## Installation via `lazy.nvim`
 
 Requires neovim-nightly:
+
+`opts = true` would also be sufficient for US keyboard. Here is an example with some customization:
 
 ```lua
 {
@@ -25,7 +29,18 @@ Requires neovim-nightly:
   event = "BufEnter",
   opts = {
     layout = "us",
-    excludes = {} -- e.g.: { "fi" }
+    excludes = { "fi" }
+    custom_keywords = {
+      {
+        pattern = "*.md",
+        keywords = {
+          "the", "of", "and", "to", "in", "a", "is", "was", "that", "for", "as", "with", "by",
+          "on", "are", "from", "be", "or", "his", "were", "it", "an", "at", "not", "which",
+          "have", "he", "had", "this", "has", "also", "their", "but", "one", "can", "its",
+          "on", "the", "other", "been", "more", "they", "used", "first", "all", "two",
+        },
+      },
+    },
   },
 },
 ```
