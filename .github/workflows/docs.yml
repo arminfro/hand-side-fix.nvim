@@ -13,7 +13,7 @@ jobs:
         uses: kdheepak/panvimdoc@main
         with:
           vimdoc: my-template-docs
-          version: "Neovim >= 0.8.0"
+          version: "Neovim nightly"
           demojify: true
           treesitter: true
       - name: Push changes

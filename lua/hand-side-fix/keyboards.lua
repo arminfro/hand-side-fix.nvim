@@ -15,14 +15,18 @@ M.layouts = {
 ---@param current_char string
 ---@return boolean
 M.is_different_hand_side = function(layout, prev_char, current_char)
-  if prev_char and current_char and utils.is_letter(prev_char) and utils.is_letter(current_char) then
-    local prev_hand_side = M.layouts[layout][prev_char]
-    local current_hand_side = M.layouts[layout][current_char]
+  if prev_char and current_char then
+    local prev_char_lowercase = string.lower(prev_char)
+    local current_char_lowercase = string.lower(current_char)
 
-    return prev_hand_side and current_hand_side and prev_hand_side ~= current_hand_side
-  else
-    return false
+    if utils.is_letter(prev_char_lowercase) and utils.is_letter(current_char_lowercase) then
+      local prev_hand_side = M.layouts[layout][prev_char_lowercase]
+      local current_hand_side = M.layouts[layout][current_char_lowercase]
+
+      return prev_hand_side and current_hand_side and prev_hand_side ~= current_hand_side
+    end
   end
+  return false
 end
 
 return M

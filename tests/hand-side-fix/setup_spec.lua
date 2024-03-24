@@ -6,15 +6,15 @@ describe("setup", function()
     assert(plugin.init("lua") == nil)
   end)
 
-  it("does not work with default opts", function()
-    local myfunction = function()
+  it("does not work with wrong layout opt", function()
+    local setup = function()
       return plugin.setup({ layout = "uus" })
     end
     local ends_with = function(str, suffix)
       return str:sub(-#suffix) == suffix
     end
 
-    xpcall(myfunction, function(err)
+    xpcall(setup, function(err)
       assert(ends_with(err, " not supported"))
       -- assert() == some_how_expressing_it_errors)
     end)
