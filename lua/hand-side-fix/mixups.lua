@@ -2,7 +2,6 @@
 local M = {}
 
 local keyboards = require("hand-side-fix.keyboards")
-local languages = require("hand-side-fix.languages")
 local utils = require("hand-side-fix.utils")
 
 M.cache = {}
@@ -49,32 +48,17 @@ local function keywords_mixups(layout, keywords, excludes)
 end
 
 ---@param layout string
----@param language string
+---@param keywords string[]
 ---@param excludes string[]
+---@param cache_key string
 ---@return table<string, table<string, string>>
-M.get = function(layout, language, excludes)
-  if M.cache[layout] and M.cache[layout][language] then
-    return M.cache[layout][language]
+M.get = function(layout, keywords, excludes, cache_key)
+  if M.cache[layout] and M.cache[layout][cache_key] then
+    return M.cache[layout][cache_key]
   else
-    local mixups = keywords_mixups(layout, languages[language].keywords(), excludes)
+    local mixups = keywords_mixups(layout, keywords, excludes)
     M.cache[layout] = M.cache[layout] or {}
-    M.cache[layout][language] = mixups
-    return mixups
-  end
-end
-
----@param layout string
----@param custom_keywords string[]
----@param excludes string[]
----@return table<string, table<string, string>>
-M.get_custom = function(layout, custom_keywords, excludes, index)
-  local id = "custom-" .. index
-  if M.cache[layout] and M.cache[layout][id] then
-    return M.cache[layout][id]
-  else
-    local mixups = keywords_mixups(layout, custom_keywords, excludes)
-    M.cache[layout] = M.cache[layout] or {}
-    M.cache[layout][id] = mixups
+    M.cache[layout][cache_key] = mixups
     return mixups
   end
 end

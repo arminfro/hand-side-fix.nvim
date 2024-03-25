@@ -1,5 +1,6 @@
 local mixups_mod = require("hand-side-fix.mixups")
 local utils = require("hand-side-fix.utils")
+local languages = require("hand-side-fix.languages")
 require("hand-side-fix.utils")
 
 local expected_mixups = require("tests.hand-side-fix.expected_mixups")
@@ -9,7 +10,7 @@ describe("MixupsModule", function()
     for language, expected_mixups_per_lang in pairs(expected_mixups_per_layout) do
       it("should return expected_mixups based on hand sides for " .. language .. " in " .. layout, function()
         mixups_mod.cache = {}
-        local mixups = mixups_mod.get(layout, language, {})
+        local mixups = mixups_mod.get(layout, languages[language].keywords(), {}, language)
         for keyword, expected_mixups_list in pairs(expected_mixups_per_lang) do
           if #expected_mixups_list > 0 then
             local is_keyword_present = mixups[keyword] ~= nil
@@ -35,7 +36,7 @@ describe("MixupsModule", function()
     local exclude = "lese"
 
     mixups_mod.cache = {}
-    local mixups = mixups_mod.get("us", "lua", { exclude })
+    local mixups = mixups_mod.get("us", languages.lua.keywords(), { exclude }, "lua")
     local bad_words = mixups["else"]
     assert.is_false(utils.has_value(bad_words, exclude))
   end)

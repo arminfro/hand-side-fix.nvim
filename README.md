@@ -29,12 +29,12 @@ Requires neovim-nightly:
   event = "BufEnter",
   opts = {
     layout = "us",
-    excludes = { "fi" }
+    excludes = { "fi" },
     custom_keywords = {
       {
         pattern = "*.md",
         keywords = {
-          "the", "of", "and", "to", "in", "a", "is", "was", "that", "for", "as", "with", "by",
+          "the", "of", "and", "to", "in", "is", "was", "that", "for", "as", "with", "by",
           "on", "are", "from", "be", "or", "his", "were", "it", "an", "at", "not", "which",
           "have", "he", "had", "this", "has", "also", "their", "but", "one", "can", "its",
           "on", "the", "other", "been", "more", "they", "used", "first", "all", "two",

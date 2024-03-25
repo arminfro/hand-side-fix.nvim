@@ -1,5 +1,6 @@
 local module = require("hand-side-fix.module")
 local mixups = require("hand-side-fix.mixups")
+local languages = require("hand-side-fix.languages")
 
 ---@class Config
 ---@field layout string
@@ -30,7 +31,7 @@ M.setup = function(args)
         pattern = value.pattern,
         callback = function()
           module.init(function()
-            return mixups.get_custom(M.config.layout, value.keywords, M.config.excludes, i)
+            return mixups.get(M.config.layout, value.keywords, M.config.excludes, "custom-key-cache" .. i)
           end)
         end,
       })
@@ -41,7 +42,7 @@ end
 ---@param language string
 M.init = function(language)
   return module.init(function()
-    return mixups.get(M.config.layout, language, M.config.excludes)
+    return mixups.get(M.config.layout, languages[language].keywords(), M.config.excludes, language)
   end)
 end
 
