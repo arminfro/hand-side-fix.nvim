@@ -1,4 +1,4 @@
-*hand-side-fix.nvim.txt*     For Neovim nightly     Last change: 2024 March 24
+*hand-side-fix.nvim.txt*     For Neovim nightly     Last change: 2024 March 25
 
 ==============================================================================
 Table of Contents                       *hand-side-fix.nvim-table-of-contents*
@@ -42,12 +42,12 @@ some customization:
       event = "BufEnter",
       opts = {
         layout = "us",
-        excludes = { "fi" }
+        excludes = { "fi" },
         custom_keywords = {
           {
             pattern = "*.md",
             keywords = {
-              "the", "of", "and", "to", "in", "a", "is", "was", "that", "for", "as", "with", "by",
+              "the", "of", "and", "to", "in", "is", "was", "that", "for", "as", "with", "by",
               "on", "are", "from", "be", "or", "his", "were", "it", "an", "at", "not", "which",
               "have", "he", "had", "this", "has", "also", "their", "but", "one", "can", "its",
               "on", "the", "other", "been", "more", "they", "used", "first", "all", "two",
