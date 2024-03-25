@@ -1,7 +1,6 @@
 local mixups_mod = require("hand-side-fix.mixups")
 local utils = require("hand-side-fix.utils")
 local languages = require("hand-side-fix.languages")
-require("hand-side-fix.utils")
 
 local expected_mixups = require("tests.hand-side-fix.expected_mixups")
 
