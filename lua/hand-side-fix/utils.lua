@@ -1,8 +1,8 @@
 ---@class Utils
 local M = {}
 
----@param tab string[]
----@param val string
+---@param tab any[]
+---@param val any
 M.has_value = function(tab, val)
   for _, value in ipairs(tab) do
     if value == val then
@@ -18,8 +18,8 @@ M.is_letter = function(char)
   return char:match("%a") ~= nil
 end
 
----@param tab CustomKeywords[]
----@param callback fun(value:CustomKeywords,index:number,tab:string[]): boolean
+---@param tab any[]
+---@param callback fun(value:any,index:number,tab:string[]): boolean
 M.every = function(tab, callback)
   for i, v in ipairs(tab) do
     if not callback(v, i, tab) then
