@@ -2,6 +2,11 @@ local M = {}
 
 local utils = require("hand-side-fix.utils")
 
+---@class HandSide
+---@field left number
+---@field right number
+local hand_side = {}
+
 ---@class KeyboardLayouts
 ---@field us KeyboardLayout
 ---@field de KeyboardLayout

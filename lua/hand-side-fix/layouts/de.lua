@@ -1,6 +1,4 @@
 ---@class HandSide
----@field left number
----@field right number
 local hand_side = {
   left = 1,
   right = 2,

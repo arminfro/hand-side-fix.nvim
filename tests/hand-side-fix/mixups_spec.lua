@@ -2,7 +2,7 @@ local mixups_mod = require("hand-side-fix.mixups")
 local utils = require("hand-side-fix.utils")
 local languages = require("hand-side-fix.languages")
 
-local expected_mixups = require("tests.hand-side-fix.expected_mixups")
+local expected_mixups = require("tests.hand-side-fix.expected-mixups")
 
 describe("MixupsModule", function()
   for layout, expected_mixups_per_layout in pairs(expected_mixups) do
@@ -16,12 +16,12 @@ describe("MixupsModule", function()
             assert.is_true(is_keyword_present)
             local allPresent = is_keyword_present
             for _, mixup in ipairs(expected_mixups_list) do
-              local isValuePresent = utils.has_value(mixups[keyword], mixup)
-              allPresent = allPresent and isValuePresent
+              local is_value_present = utils.has_value(mixups[keyword], mixup)
+              allPresent = allPresent and is_value_present
               if not allPresent then
                 print("Failing mixups for " .. language .. " in layout " .. layout .. "=" .. vim.inspect(mixups))
               end
-              assert.is_true(isValuePresent)
+              assert.is_true(is_value_present)
             end
           else
             assert.is_true(mixups[keyword] == nil)
@@ -31,12 +31,12 @@ describe("MixupsModule", function()
     end
   end
 
-  it("should leave defined excludes", function()
+  it("should ignore defined excludes", function()
     local exclude = "lese"
 
     mixups_mod.cache = {}
     local mixups = mixups_mod.get("us", languages.lua.keywords(), { exclude }, "lua")
-    local bad_words = mixups["else"]
-    assert.is_false(utils.has_value(bad_words, exclude))
+    local wrong_words = mixups["else"]
+    assert.is_false(utils.has_value(wrong_words, exclude))
   end)
 end)

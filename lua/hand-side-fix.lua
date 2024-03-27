@@ -1,7 +1,7 @@
 local module = require("hand-side-fix.module")
 local mixups = require("hand-side-fix.mixups")
 local languages = require("hand-side-fix.languages")
-local validate_config = require("hand-side-fix.validate-config")
+local validator = require("hand-side-fix.config-validator")
 
 ---@class CustomKeywords
 ---@field pattern string
@@ -27,7 +27,7 @@ M.config = config
 M.setup = function(args)
   M.config = vim.tbl_deep_extend("force", M.config, args or {})
 
-  local is_valid, error_msg = validate_config.validate(M.config)
+  local is_valid, error_msg = validator.validate(M.config)
   if not is_valid then
     error(error_msg)
   end
@@ -39,7 +39,7 @@ M.setup = function(args)
         desc = "hand-side-fix custom_keywords[" .. i .. "] init",
         callback = function()
           module.init(function()
-            return mixups.get(M.config.layout, value.keywords, M.config.excludes, "custom-key-cache" .. i)
+            return mixups.get(M.config.layout, value.keywords, M.config.excludes, "custom-" .. i)
           end)
         end,
       })
