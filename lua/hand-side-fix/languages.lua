@@ -1,5 +1,11 @@
 ---@class Languages
 return {
+  bash = {
+    keywords = function()
+      return require("hand-side-fix.keywords.bash")
+    end,
+    pattern = "*.sh",
+  },
   lua = {
     keywords = function()
       return require("hand-side-fix.keywords.lua")

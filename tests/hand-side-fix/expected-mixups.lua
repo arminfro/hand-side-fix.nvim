@@ -1,5 +1,6 @@
 return {
   us = {
+    bash = require("tests.hand-side-fix.expectations.us.bash"),
     c = require("tests.hand-side-fix.expectations.us.c"),
     cpp = require("tests.hand-side-fix.expectations.us.cpp"),
     csharp = require("tests.hand-side-fix.expectations.us.csharp"),
@@ -19,6 +20,7 @@ return {
     typescript = require("tests.hand-side-fix.expectations.us.typescript"),
   },
   de = {
+    bash = require("tests.hand-side-fix.expectations.de.bash"),
     c = require("tests.hand-side-fix.expectations.de.c"),
     cpp = require("tests.hand-side-fix.expectations.de.cpp"),
     csharp = require("tests.hand-side-fix.expectations.de.csharp"),
