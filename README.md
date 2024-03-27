@@ -1,7 +1,7 @@
 # Abbreviations setup with `hand-side-fix.nvim`
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/arminfro/hand-side-fix.nvim/lint-test.yml?branch=main&style=for-the-badge)
 ![Lua](https://img.shields.io/badge/Made%20with%20Lua-blueviolet.svg?style=for-the-badge&logo=lua)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/arminfro/hand-side-fix.nvim/lint-test.yml?branch=main&style=for-the-badge)
 
 This plugin is based on the idea that many typos occur because letters are typed with different hands.
 It applies the idea to a small set of keywords.
@@ -53,6 +53,7 @@ Requires neovim-nightly.
 
 ## Supported Languages
 
+- Bash
 - C/C++
 - C#
 - Go
